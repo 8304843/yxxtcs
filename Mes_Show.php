@@ -25,6 +25,7 @@ if ($res -> num_rows > 0) {
 		$ret_data["data"][$i]["phone"] = $row["联系电话"];
 		$ret_data["data"][$i]["receive"] = $row["收件人"];
 		$ret_data["data"][$i]["result"] = $row["投档成绩"];
+		$ret_data["data"][$i]["payment"] = $row["缴费情况"];
 		$i++;
 	}
 	$ret_data["success"] = 'success';

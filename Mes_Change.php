@@ -17,7 +17,8 @@
 	$phone = isset($_POST["phone"])?$_POST["phone"] : '';
 	$receive = isset($_POST["receive"])?$_POST["receive"] : '';
 	$result = isset($_POST["result"])?$_POST["result"] : '';
-	$sql = "UPDATE 学生信息 SET 姓名='$name',省份='$province',考生号='$num',性别='$sex',身份证号='$message',二级学院='$xueyuan',宿舍号='$dorm',录取专业='$zy',邮寄地址='$address',邮政编码='$code',联系电话='$phone' ,收件人='$receive' ,投档成绩='$result'  where id = '".$id."' ";
+	$payment = isset($_POST["payment"])?$_POST["payment"] : '';
+	$sql = "UPDATE 学生信息 SET 姓名='$name',省份='$province',考生号='$num',性别='$sex',身份证号='$message',二级学院='$xueyuan',宿舍号='$dorm',录取专业='$zy',邮寄地址='$address',邮政编码='$code',联系电话='$phone' ,收件人='$receive' ,投档成绩='$result',缴费情况='$payment'  where id = '".$id."' ";
 	$res = $conn -> query($sql);
 	
 	$ret_data["success"] = 'success';
