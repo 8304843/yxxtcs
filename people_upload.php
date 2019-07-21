@@ -33,19 +33,19 @@ for($y=2;$y<=$highestRow;$y++)
       $k = $objPHPExcel->getActiveSheet()->getCell("K".$y)->getValue();//获取D列的值,联系电话
       $l = $objPHPExcel->getActiveSheet()->getCell("L".$y)->getValue();//获取E列的值,收件人
       $m = $objPHPExcel->getActiveSheet()->getCell("M".$y)->getValue();//获取F列的值,投档成绩
-//    //搜索工号相同的数据
-//    $sqlNum = "SELECT * from 学生信息 where gNum='$c'";
-//    $result = $conn->query($sqlNum);
-//    if ($result->num_rows > 0) {
-//      $ret_data["error"]=$c;
-//      $json=json_encode($ret_data);
-//      echo $json;
-//    }else{
-//      //插入数据
+      //搜索考生号号相同的数据
+      $sqlNum = "SELECT * from 学生信息 where 考生号='$c'";
+      $result = $conn->query($sqlNum);
+      if ($result->num_rows > 0) {
+        $ret_data["error"]=$c;
+        $json=json_encode($ret_data);
+        echo $json;
+      }else{
+        //插入数据
         $sql = "INSERT INTO 学生信息 (姓名,省份,考生号,性别,身份证号,二级学院,录取专业,邮寄地址,邮政编码,联系电话,收件人,投档成绩,录入时间) VALUES ('$d','$b','$c','$e','$f','$g','$h','$i','$j','$k','$l','$m','$time')";
      //echo $sql;
         $res = $conn->query($sql);
-//    }
+      }
   }
 
  $json = '{"result":"success"}';
