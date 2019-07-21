@@ -6,7 +6,7 @@ $ret_data = '';
 $time = date("Y-m-d h:i:sa");
 //$flag = isset($_POST["flag"]) ? $_POST["flag"] : '';
 
-$sql = "SELECT * FROM 学生信息 ";
+$sql = "SELECT * FROM 学生信息 order by id ASC";
 $res = $conn -> query($sql);
 if ($res -> num_rows > 0) {
 	$i = 0;
@@ -26,6 +26,7 @@ if ($res -> num_rows > 0) {
 		$ret_data["data"][$i]["receive"] = $row["收件人"];
 		$ret_data["data"][$i]["result"] = $row["投档成绩"];
 		$ret_data["data"][$i]["payment"] = $row["缴费情况"];
+		$ret_data["data"][$i]["data"] = $row["录入时间"];
 		$i++;
 	}
 	$ret_data["success"] = 'success';
