@@ -1,5 +1,6 @@
 <?php 
 	require('conn.php');
+	header("Access-Control-Allow-Origin: *");
  require_once 'PHPExcel/IOFactory.php';
  require_once 'PHPExcel/Shared/Date.php';
  require_once 'PHPExcel/Reader/Excel5.php';
@@ -15,6 +16,8 @@ $objPHPExcel = PHPExcel_IOFactory::load($_FILES['file']['tmp_name']); // 读取x
  //循环读取excel文件,读取一条,插入一条
  //j表示从哪一行开始读取
  //$a表示列号
+$time=date("Y-m-d h:i:sa");
+echo $time;
 for($y=2;$y<=$highestRow;$y++)
   {
       $a = $objPHPExcel->getActiveSheet()->getCell("A".$y)->getValue();//获取A列的值,名字name
@@ -39,7 +42,7 @@ for($y=2;$y<=$highestRow;$y++)
 //      echo $json;
 //    }else{
 //      //插入数据
-        $sql = "INSERT INTO 学生信息 (姓名,省份,考生号,性别,身份证号,二级学院,录取专业,邮寄地址,邮政编码,联系电话,收件人,投档成绩) VALUES ('$d','$b','$c','$e','$f','$g','$h','$i','$j','$k','$l','$m')";
+        $sql = "INSERT INTO 学生信息 (姓名,省份,考生号,性别,身份证号,二级学院,录取专业,邮寄地址,邮政编码,联系电话,收件人,投档成绩,录入时间) VALUES ('$d','$b','$c','$e','$f','$g','$h','$i','$j','$k','$l','$m','$time')";
      //echo $sql;
         $res = $conn->query($sql);
 //    }
