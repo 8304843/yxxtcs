@@ -19,9 +19,9 @@
 	$result = isset($_POST["result"])?$_POST["result"] : '';
 	$payment = isset($_POST["payment"])?$_POST["payment"] : '';
 //	 $time = time();
-		$sql = "INSERT INTO 学生信息 (姓名,省份,考生号,性别,身份证号,二级学院,宿舍号,录取专业,邮寄地址,邮政编码,联系电话,收件人,投档成绩,缴费情况,录入时间) VALUES ('$name','$province','$num','$sex','$message','$xueyuan','$dorm','$zy','$address','$code','$phone','$receive','$result','$payment','$time')";
+		$sql = "INSERT INTO 学生信息 (姓名,省份,考生号,性别,身份证号,二级学院,宿舍号,录取专业,邮寄地址,邮政编码,联系电话,收件人,投档成绩,缴费情况,录入时间,photo) VALUES ('$name','$province','$num','$sex','$message','$xueyuan','$dorm','$zy','$address','$code','$phone','$receive','$result','$payment','$time','$filenames')";
 		$res = $conn->query($sql);
     $conn->close();
-	$json=json_encode($ret_data);
+	$json=json_encode($ret_data); 
 	echo $json
 ?>

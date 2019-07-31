@@ -27,6 +27,8 @@ if ($res -> num_rows > 0) {
 		$ret_data["data"][$i]["result"] = $row["投档成绩"];
 		$ret_data["data"][$i]["payment"] = $row["缴费情况"];
 		$ret_data["data"][$i]["date"] = $row["录入时间"];
+		$ret_data["data"][$i]["photo"] = $row["photo"];
+		$ret_data["data"][$i]["state"] = $row["state"];
 		$i++;
 	}
 	$ret_data["success"] = 'success';
