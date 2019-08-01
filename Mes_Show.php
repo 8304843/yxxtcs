@@ -29,6 +29,7 @@ if ($res -> num_rows > 0) {
 		$ret_data["data"][$i]["date"] = $row["录入时间"];
 		$ret_data["data"][$i]["photo"] = $row["photo"];
 		$ret_data["data"][$i]["state"] = $row["state"];
+		$ret_data["data"][$i]["userId"] = $row["userId"];
 		$i++;
 	}
 	$ret_data["success"] = 'success';
