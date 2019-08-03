@@ -3,6 +3,7 @@
 	header("Access-Control-Allow-Origin: *");
 	// 允许任意域名发起的跨域请求
 	$ret_data = '';
+	$ret_data["success"] = 'success';
 	$name = isset($_POST["name"])?$_POST["name"] : '';
 	$id = isset($_POST["id"])?$_POST["id"] : '';
 	$province = isset($_POST["province"])?$_POST["province"] : '';
@@ -18,10 +19,16 @@
 	$receive = isset($_POST["receive"])?$_POST["receive"] : '';
 	$result = isset($_POST["result"])?$_POST["result"] : '';
 	$payment = isset($_POST["payment"])?$_POST["payment"] : '';
-	$sql = "UPDATE 学生信息 SET 姓名='$name',省份='$province',考生号='$num',性别='$sex',身份证号='$message',二级学院='$xueyuan',宿舍号='$dorm',录取专业='$zy',邮寄地址='$address',邮政编码='$code',联系电话='$phone' ,收件人='$receive' ,投档成绩='$result',缴费情况='$payment'  where id = '".$id."' ";
-	$res = $conn -> query($sql);
 	
-	$ret_data["success"] = 'success';
+	$sql = "SELECT 考生号 FROM 学生信息 where 考生号='".$num."'and id!='".$id."' order by id ASC";
+	$res = $conn -> query($sql);
+	if ($res -> num_rows ==1) {
+//		echo '人员已存在';
+		$ret_data["states"] = '已存在';//即考生号不唯一
+	}else{
+		$sqli = "UPDATE 学生信息 SET 姓名='$name',省份='$province',考生号='$num',性别='$sex',身份证号='$message',二级学院='$xueyuan',宿舍号='$dorm',录取专业='$zy',邮寄地址='$address',邮政编码='$code',联系电话='$phone' ,收件人='$receive' ,投档成绩='$result',缴费情况='$payment'  where id = '".$id."' ";
+		$result = $conn -> query($sqli);
+	}
 	
 	$conn -> close();
 	$json = json_encode($ret_data);
