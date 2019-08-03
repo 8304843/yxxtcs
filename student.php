@@ -26,7 +26,7 @@
 //		echo '人员已存在';
 		$ret_data["states"] = '已存在';
 	}else{
-		$sqli = "INSERT INTO 学生信息 (姓名,省份,考生号,性别,身份证号,二级学院,宿舍号,录取专业,邮寄地址,邮政编码,联系电话,收件人,投档成绩,缴费情况,录入时间,photo,state) VALUES ('$name','$province','$num','$sex','$message','$xueyuan','$dorm','$zy','$address','$code','$phone','$receive','$result','$payment','$time','$filenames','$state')";
+		$sqli = "INSERT INTO 学生信息 (姓名,省份,考生号,性别,身份证号,二级学院,宿舍号,录取专业,邮寄地址,邮政编码,联系电话,收件人,投档成绩,缴费情况,录入时间,photo,state,Photo_Base64) VALUES ('$name','$province','$num','$sex','$message','$xueyuan','$dorm','$zy','$address','$code','$phone','$receive','$result','$payment','$time','$filenames','$state','$Base64')";
 		$result = $conn->query($sqli);
 	}
 		

@@ -30,6 +30,7 @@ if ($res -> num_rows > 0) {
 		$ret_data["data"][$i]["photo"] = $row["photo"];
 		$ret_data["data"][$i]["state"] = $row["state"];
 		$ret_data["data"][$i]["userId"] = $row["userId"];
+		$ret_data["data"][$i]["photo_Base64"] = $row["photo_Base64"];
 		$i++;
 	}
 	$ret_data["success"] = 'success';

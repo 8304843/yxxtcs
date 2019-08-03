@@ -8,6 +8,7 @@
 	$length=count($strsShuzu);
 //	echo $length;
 	$filenames="";
+	$Base64 = isset($_POST["Base64"])?$_POST["Base64"] : '';
 	if($files=='null'){
 		
 	}else{
