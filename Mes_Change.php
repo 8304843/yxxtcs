@@ -19,6 +19,8 @@
 	$receive = isset($_POST["receive"])?$_POST["receive"] : '';
 	$result = isset($_POST["result"])?$_POST["result"] : '';
 	$payment = isset($_POST["payment"])?$_POST["payment"] : '';
+	$registe = isset($_POST["registe"])?$_POST["registe"] : '';
+	$classmate = isset($_POST["classmate"])?$_POST["classmate"] : '';
 	
 	$sql = "SELECT 考生号 FROM 学生信息 where 考生号='".$num."'and id!='".$id."' order by id ASC";
 	$res = $conn -> query($sql);
@@ -26,7 +28,7 @@
 //		echo '人员已存在';
 		$ret_data["states"] = '已存在';//即考生号不唯一
 	}else{
-		$sqli = "UPDATE 学生信息 SET 姓名='$name',省份='$province',考生号='$num',性别='$sex',身份证号='$message',二级学院='$xueyuan',宿舍号='$dorm',录取专业='$zy',邮寄地址='$address',邮政编码='$code',联系电话='$phone' ,收件人='$receive' ,投档成绩='$result',缴费情况='$payment'  where id = '".$id."' ";
+		$sqli = "UPDATE 学生信息 SET 姓名='$name',省份='$province',考生号='$num',性别='$sex',身份证号='$message',二级学院='$xueyuan',宿舍号='$dorm',录取专业='$zy',邮寄地址='$address',邮政编码='$code',联系电话='$phone' ,收件人='$receive' ,投档成绩='$result',缴费情况='$payment',registe='$registe',classmate='$classmate'  where id = '".$id."' ";
 		$result = $conn -> query($sqli);
 	}
 	

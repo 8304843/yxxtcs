@@ -6,7 +6,7 @@ $ret_data = '';
 $time = date("Y-m-d h:i:sa");
 //$flag = isset($_POST["flag"]) ? $_POST["flag"] : '';
 
-$sql = "SELECT * FROM 学生信息 order by id ASC";
+$sql = "SELECT * FROM 学生信息 order by Recognition_time DESC";
 $res = $conn -> query($sql);
 if ($res -> num_rows > 0) {
 	$i = 0;
@@ -31,6 +31,9 @@ if ($res -> num_rows > 0) {
 		$ret_data["data"][$i]["state"] = $row["state"];
 		$ret_data["data"][$i]["userId"] = $row["userId"];
 		$ret_data["data"][$i]["photo_Base64"] = $row["photo_Base64"];
+		$ret_data["data"][$i]["registe"] = $row["registe"];
+		$ret_data["data"][$i]["classmate"] = $row["classmate"];
+		
 		$i++;
 	}
 	$ret_data["success"] = 'success';

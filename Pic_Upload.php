@@ -3,7 +3,7 @@
 	header("Access-Control-Allow-Origin: *"); // 允许任意域名发起的跨域请求
 	$files =$_POST["file"];
 	$id = $_POST["id"];
-	
+	$Base64 = isset($_POST["Base64"])?$_POST["Base64"] : '';
 	$sjcNmae=time();
 	$strsShuzu = $files;
 	$length=count($strsShuzu);
@@ -26,7 +26,7 @@
 	$sql="select photo from 学生信息 where id = '".$id."'";
 	$res = $conn->query($sql);
 	if($res->num_rows > 0){
-		$sqli = "update 学生信息 set photo = '$filenames',state='已上传' where id='".$id."'";
+		$sqli = "update 学生信息 set photo = '$filenames',state='已上传',photo_Base64='$Base64' where id='".$id."'";
 		if ($conn->query($sqli) === TRUE) {
 			$jsonresult='success';
 		} else {
