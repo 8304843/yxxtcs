@@ -10,7 +10,7 @@
 	$res = $conn -> query($sql);
 	if($compareTime)
 	{
-	$sql1= "UPDATE 学生信息 SET Recognition_time = '$compareTime' where userid= '".$userId."' and Recognition_time = '' ";
+	$sql1= "UPDATE 学生信息 SET Recognition_time = '$compareTime' where userid= '".$userId."' and Recognition_time = '0000-00-00 00:00:00' ";
 	$res = $conn -> query($sql1);
 	}
 	

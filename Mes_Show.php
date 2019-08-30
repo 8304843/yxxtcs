@@ -18,7 +18,9 @@ if ($res -> num_rows > 0) {
 		$ret_data["data"][$i]["sex"] = $row["性别"];
 		$ret_data["data"][$i]["message"] = $row["身份证号"];
 		$ret_data["data"][$i]["xueyuan"] = $row["二级学院"];
-		$ret_data["data"][$i]["dorm"] = $row["宿舍号"];		
+		$ret_data["data"][$i]["building"] = $row["楼栋"];
+		$ret_data["data"][$i]["dorm"] = $row["宿舍号"];
+		$ret_data["data"][$i]["bed"] = $row["床号"];		
 		$ret_data["data"][$i]["zy"] = $row["录取专业"];
 		$ret_data["data"][$i]["address"] = $row["邮寄地址"];
 		$ret_data["data"][$i]["code"] = $row["邮政编码"];
